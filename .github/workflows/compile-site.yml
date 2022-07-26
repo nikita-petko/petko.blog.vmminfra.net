@@ -1,0 +1,42 @@
+name: Compile Site
+
+on:
+  push:
+    branches:
+      - "master"
+    paths:
+      - "blog/**"
+      - ".github/workflows/compile-site.yml"
+      - "mkdocs.yml"
+permissions:
+  contents: write
+
+jobs:
+  compile:
+    if: "!contains(toJSON(github.event.commits.*.message), '[SKIP COMPILATION]')"
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: "3.9.7"
+      
+      - name: Install dependencies
+        run: |
+          pip install mkdocs-material mkdocs-minify-plugin
+      
+      - name: Configure Git user
+        run: |
+          git config --local user.email "ops+gh@vmminfra.net"
+          git config --local user.name "mfdlabs-ops"
+      
+      - name: Deploy docs
+        run: |
+          mkdocs gh-deploy --force
+        env:
+          GITHUB_TOKEN: ${{ github.token }}

@@ -1,0 +1,61 @@
+site_name: "Nikita Petko's Blog"
+site_url: "https://petko.blog.vmminfra.net"
+edit_uri: ""
+remote_branch: deploy/blog-deploy
+docs_dir: blog
+
+theme:
+  name: material
+  custom_dir: blog/overrides
+  favicon: .icons/fontawesome/brands/microblog.svg
+  font:
+    text: Inter
+    code: JetBrains Mono
+  palette:
+    scheme: slate
+    primary: black
+    accent: blue
+  features:
+    - content.code.annotate
+    - navigation.instant
+    - navigation.tracking
+    - navigation.tabs
+
+extra_css:
+  - assets/theme.css
+
+plugins:
+  - search
+  - minify:
+      minify_html: true
+
+markdown_extensions:
+  - admonition
+  - attr_list
+  - def_list
+  - meta
+  - pymdownx.betterem
+  - pymdownx.details
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.inlinehilite
+  - pymdownx.keys
+  - pymdownx.magiclink
+  - pymdownx.superfences
+  - pymdownx.highlight:
+      guess_lang: false
+  - toc:
+      permalink: true
+  - pymdownx.emoji:
+      emoji_index: !!python/name:materialx.emoji.twemoji
+      emoji_generator: !!python/name:materialx.emoji.to_svg
+
+extra:
+  analytics:
+    provider: google
+    property: G-29Q1LCSVMK
+  generator: false
+
+copyright: Copyright &copy; Nikita Petko. All rights reserved.
