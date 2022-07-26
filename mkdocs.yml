@@ -1,5 +1,5 @@
 site_name: "Nikita Petko's Blog"
-site_url: "https://petko.blog.vmminfra.net"
+site_url: "https://petko.blog.vmminfra.net/"
 edit_uri: ""
 remote_branch: deploy/blog-deploy
 docs_dir: blog
