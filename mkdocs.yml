@@ -7,7 +7,7 @@ docs_dir: blog
 theme:
   name: material
   custom_dir: blog/overrides
-  favicon: .icons/fontawesome/brands/microblog.svg
+  favicon: assets/logo.svg
   font:
     text: Inter
     code: JetBrains Mono
