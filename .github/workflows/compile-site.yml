@@ -13,7 +13,17 @@ permissions:
   contents: write
 
 jobs:
+  cancel-old-compilation:
+    name: Cancel previous compilation
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Cancel Previous Runs
+        uses: styfle/cancel-workflow-action@0.9.1
+        with:
+          access_token: ${{ github.token }}
   compile:
+    needs: [cancel-old-compilation]
     if: "!contains(toJSON(github.event.commits.*.message), '[SKIP COMPILATION]')"
     runs-on: ubuntu-latest
     steps:
