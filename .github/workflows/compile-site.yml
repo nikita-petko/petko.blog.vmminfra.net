@@ -1,6 +1,7 @@
 name: Compile Site
 
 on:
+  workflow_dispatch:
   push:
     branches:
       - "master"
@@ -25,16 +26,16 @@ jobs:
         uses: actions/setup-python@v2
         with:
           python-version: "3.9.7"
-      
+
       - name: Install dependencies
         run: |
           pip install mkdocs-material mkdocs-minify-plugin
-      
+
       - name: Configure Git user
         run: |
           git config --local user.email "ops+gh@vmminfra.net"
           git config --local user.name "mfdlabs-ops"
-      
+
       - name: Deploy docs
         run: |
           mkdocs gh-deploy --force
