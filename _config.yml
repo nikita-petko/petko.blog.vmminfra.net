@@ -1,0 +1,26 @@
+title: Nikita Petko Blog
+email: petko@vmminfra.net
+description: >- # this means to ignore newlines until "baseurl:"
+  Hey.
+baseurl: "" # the subpath of your site, e.g. /blog
+url: "" # the base hostname & protocol for your site, e.g. http://example.com
+
+# Build settings
+theme: jekyll-theme-simplex-v2
+plugins:
+  - jekyll-feed
+
+copyright: Copyright © Nikita Petko. All rights reserved.
+
+collections:
+  category:
+    output: true
+  authors:
+    output: false
+
+defaults:
+  - scope:
+      path: ""
+      type: category
+    values:
+      layout: "category"
