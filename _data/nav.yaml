@@ -1,0 +1,3 @@
+- title: Example
+  url: category/example.html
+  hue: "var(--c-themeHueOrange)"
